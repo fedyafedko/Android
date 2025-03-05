@@ -55,7 +55,6 @@ fun TrainRouteSelectionScreen() {
             style = MaterialTheme.typography.headlineMedium
         )
 
-        // Departure Point Input
         OutlinedTextField(
             value = departurePoint,
             onValueChange = { departurePoint = it },
@@ -67,7 +66,6 @@ fun TrainRouteSelectionScreen() {
             )
         )
 
-        // Arrival Point Input
         OutlinedTextField(
             value = arrivalPoint,
             onValueChange = { arrivalPoint = it },
@@ -79,7 +77,6 @@ fun TrainRouteSelectionScreen() {
             )
         )
 
-        // Time Slot Selection
         Text("Select Departure Time", style = MaterialTheme.typography.bodyLarge)
 
         Row(
@@ -95,10 +92,8 @@ fun TrainRouteSelectionScreen() {
             }
         }
 
-        // OK Button
         Button(
             onClick = {
-                // Input Validation
                 when {
                     departurePoint.isBlank() -> {
                         Toast.makeText(context, "Please enter departure point", Toast.LENGTH_SHORT).show()
@@ -107,7 +102,6 @@ fun TrainRouteSelectionScreen() {
                         Toast.makeText(context, "Please enter arrival point", Toast.LENGTH_SHORT).show()
                     }
                     else -> {
-                        // Construct Route Details
                         routeDetails = """
                             Route Details:
                             Departure: $departurePoint
@@ -122,7 +116,6 @@ fun TrainRouteSelectionScreen() {
             Text("Find Route")
         }
 
-        // Route Details Display
         if (routeDetails.isNotBlank()) {
             Card(
                 modifier = Modifier.fillMaxWidth(),
